@@ -42,18 +42,110 @@ const MovingJobs: React.FC<MovingJobsProps> = ({ setSignupFormVisibility }) => {
       position: "Full Stack Developer",
       time: "12 hours ago",
       logo: "🏛️"
-    }
-  ];
+    },
+    {
+  company: "Apple",
+  position: "iOS Developer",
+  time: "3 hours ago",
+  logo: "🍎"
+},
+{
+  company: "Amazon",
+  position: "Cloud Solutions Architect",
+  time: "9 hours ago",
+  logo: "📦"
+},
+{
+  company: "Microsoft",
+  position: "AI Research Scientist",
+  time: "6 hours ago",
+  logo: "💻"
+},
+{
+  company: "Google",
+  position: "Product Manager",
+  time: "2 hours ago",
+  logo: "🌐"
+},
+{
+  company: "Meta",
+  position: "Frontend Engineer",
+  time: "15 hours ago",
+  logo: "📘"
+},
+{
+  company: "Netflix",
+  position: "Data Engineer",
+  time: "11 hours ago",
+  logo: "🎬"
+},
+{
+  company: "Tesla",
+  position: "Machine Learning Engineer",
+  time: "4 hours ago",
+  logo: "🚗"
+},
+{
+  company: "IBM",
+  position: "Cybersecurity Analyst",
+  time: "19 hours ago",
+  logo: "🖥️"
+},
+{
+  company: "Intel",
+  position: "Hardware Engineer",
+  time: "7 hours ago",
+  logo: "🔌"
+},
+{
+  company: "Oracle",
+  position: "Database Administrator",
+  time: "13 hours ago",
+  logo: "☁️"
+},
+{
+  company: "Adobe",
+  position: "UX Designer",
+  time: "10 hours ago",
+  logo: "🎨"
+},
+{
+  company: "Salesforce",
+  position: "CRM Specialist",
+  time: "21 hours ago",
+  logo: "☁️"
+},
+{
+  company: "Uber",
+  position: "Backend Developer",
+  time: "16 hours ago",
+  logo: "🚖"
+},
+{
+  company: "Airbnb",
+  position: "Data Scientist",
+  time: "14 hours ago",
+  logo: "🏡"
+},
+{
+  company: "LinkedIn",
+  position: "Software Engineer",
+  time: "20 hours ago",
+  logo: "🔗"
+},
+];
+
+
 
   return (
     <section className="py-12 sm:py-16 bg-gradient-to-r from-gray-50 to-orange-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-            Never Miss Out On New Jobs Again.
+            How FLASHFIRE Delivers These Results?
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">
-            Join The Largest Job Board!
+            AI automation, ATS resumes, recruiter targeting.
           </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-12">
@@ -63,7 +155,7 @@ const MovingJobs: React.FC<MovingJobsProps> = ({ setSignupFormVisibility }) => {
                 Return on Investment
               </h3>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                Your job hunt pays back instantly—our clients see 200x ROI through higher salaries, faster placements, and long-term career growth.
+                Clients see 200x ROI with higher salaries, faster offers, and lasting growth.
               </p>
             </div>
             
@@ -73,7 +165,7 @@ const MovingJobs: React.FC<MovingJobsProps> = ({ setSignupFormVisibility }) => {
                Applications Sent Smartly
               </h3>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                We’ve streamlined over 50,000+ applications with tailored resumes and ATS optimization, ensuring maximum recruiter visibility and higher callback rates.
+                50k+ applications optimized with ATS resumes for maximum visibility and callbacks.
               </p>
             </div>
             
@@ -83,7 +175,8 @@ const MovingJobs: React.FC<MovingJobsProps> = ({ setSignupFormVisibility }) => {
                 To Your First Interview Call
               </h3>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                On average, members receive their first interview call within 7 days, turning months of waiting into just a few days of opportunity.
+                Members get their first interview call in just 7 days. 
+
               </p>
             </div>
           </div>
@@ -96,7 +189,7 @@ const MovingJobs: React.FC<MovingJobsProps> = ({ setSignupFormVisibility }) => {
             {jobs.map((job, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 min-w-[280px] sm:min-w-[320px]"
+                className=" bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 "
               >
                 <div className="flex items-center space-x-3 sm:space-x-4">
                   <div className="text-2xl sm:text-3xl">{job.logo}</div>
@@ -108,12 +201,13 @@ const MovingJobs: React.FC<MovingJobsProps> = ({ setSignupFormVisibility }) => {
                 </div>
               </div>
             ))}
+          
             
             {/* Duplicate set for seamless loop */}
             {jobs.map((job, index) => (
               <div
                 key={`duplicate-${index}`}
-                className="flex-shrink-0 bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 min-w-[280px] sm:min-w-[320px]"
+                className=" bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 "
               >
                 <div className="flex items-center space-x-3 sm:space-x-4">
                   <div className="text-2xl sm:text-3xl">{job.logo}</div>
@@ -141,9 +235,10 @@ const MovingJobs: React.FC<MovingJobsProps> = ({ setSignupFormVisibility }) => {
                                 });
                                 setSignupFormVisibility(true); // just opens modal/form
                               }}
-            className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-lg hover:scale-105 text-sm sm:text-base"
-          >
-            Apply to These Jobs Automatically
+                              >
+           {/* <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-lg hover:scale-105 text-sm sm:text-base">
+           Apply to These Jobs Automatically
+           </div> */}
           </button>
         </div>
       </div>
@@ -151,4 +246,4 @@ const MovingJobs: React.FC<MovingJobsProps> = ({ setSignupFormVisibility }) => {
   );
 };
 
-export default MovingJobs;
+export default MovingJobs; 
