@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Mail, Calendar, MessageCircle, CheckCircle } from 'lucide-react';
 import { GTagUTM } from '../utils/GTagUTM.js';
 import WhatsAppSupport from './WhatsappSupport.js';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const Contact = ({setSignupFormVisibility}) => {
+type ContactProps = {};
+
+const Contact = ({}: ContactProps) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -16,16 +18,15 @@ const Contact = ({setSignupFormVisibility}) => {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
   const handleSubmit = async () => {
     setIsSubmitting(true);
     
     try {
-      let requestToServer = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/contact` , {
+      let requestToServer = await fetch(`${API_BASE_URL}/api/contact` , {
         method: 'POST',
         headers: {'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

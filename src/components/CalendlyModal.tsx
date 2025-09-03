@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { X, Calendar, CheckCircle, Loader2, Clock, Users, Target } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { X, Calendar, CheckCircle, Clock, Users, Target } from 'lucide-react';
 import { InlineWidget } from 'react-calendly';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;

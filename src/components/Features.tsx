@@ -4,7 +4,11 @@ import { useOutletContext } from 'react-router-dom';
 import { GTagUTM } from '../utils/GTagUTM.js';
 import WhatsAppButton from './WhatsAppButton.js';
 import WhatsAppSupport from './WhatsappSupport.js';
-const Features = ({setSignupFormVisibility}) => {
+type FeaturesProps = {
+  setSignupFormVisibility?: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const Features: React.FC<FeaturesProps> = () => {
   // const { setSignupFormVisibility } = useOutletContext<{
   //   setSignupFormVisibility: React.Dispatch<React.SetStateAction<boolean>>;
   // }>();

@@ -1,6 +1,11 @@
 import React from 'react';
 import { GTagUTM } from '../utils/GTagUTM.js';
-const MovingJobs = ({setSignupFormVisibility}) => {
+
+interface MovingJobsProps {
+  setSignupFormVisibility: (visible: boolean) => void;
+}
+
+const MovingJobs: React.FC<MovingJobsProps> = ({ setSignupFormVisibility }) => {
   const jobs = [
     {
       company: "Redfin",
@@ -51,14 +56,35 @@ const MovingJobs = ({setSignupFormVisibility}) => {
             Join The Largest Job Board!
           </p>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mb-8 sm:mb-12 max-w-2xl mx-auto">
-            <div className="bg-white p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100">
-              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">200,000+</div>
-              <p className="text-gray-600 text-sm sm:text-base">New U.S. Jobs Daily</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-12">
+            <div className="bg-white p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-transform duration-200 hover:shadow-2xl hover:scale-105">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-orange-600 mb-3 sm:mb-4">200x</div>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">
+                Return on Investment
+              </h3>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                Your job hunt pays back instantly—our clients see 200x ROI through higher salaries, faster placements, and long-term career growth.
+              </p>
             </div>
-            <div className="bg-white p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100">
-              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">5,000,000+</div>
-              <p className="text-gray-600 text-sm sm:text-base">Verified Active Listings</p>
+            
+            <div className="bg-white p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-transform duration-200 hover:shadow-2xl hover:scale-105">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-orange-600 mb-3 sm:mb-4">50k+</div>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">
+               Applications Sent Smartly
+              </h3>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                We’ve streamlined over 50,000+ applications with tailored resumes and ATS optimization, ensuring maximum recruiter visibility and higher callback rates.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-transform duration-200 hover:shadow-2xl hover:scale-105">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-orange-600 mb-3 sm:mb-4">1 Week</div>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">
+                To Your First Interview Call
+              </h3>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                On average, members receive their first interview call within 7 days, turning months of waiting into just a few days of opportunity.
+              </p>
             </div>
           </div>
         </div>

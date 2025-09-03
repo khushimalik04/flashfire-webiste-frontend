@@ -1,4 +1,10 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+
+declare global {
+  interface Window {
+    openSignupModal?: (arg: number) => void;
+  }
+}
 
 const AutoModalTrigger = () => {
   // Automatically open signup modal after 10 seconds

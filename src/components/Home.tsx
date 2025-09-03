@@ -18,8 +18,17 @@ import CalendlyModal from './CalendlyModal.tsx';
 import { useOutletContext } from 'react-router-dom';
 import SalesPopup from './SalesPopUp.tsx';
 
+interface HeroProps {
+  setCalendlyModalVisibility: React.Dispatch<React.SetStateAction<boolean>>;
+  setSignupFormVisibility: React.Dispatch<React.SetStateAction<boolean>>;
+  // existing props, if any
+}
+
 function Home() {
-  const { signupFormVisibility,calendlyModalVisibility,setSignupFormVisibility, setCalendlyModalVisibility } = useOutletContext<{
+  const {
+    setSignupFormVisibility,
+    setCalendlyModalVisibility
+  } = useOutletContext<{
     setSignupFormVisibility: React.Dispatch<React.SetStateAction<boolean>>,
     setCalendlyModalVisibility: React.Dispatch<React.SetStateAction<boolean>>,
   }>();
@@ -50,8 +59,7 @@ function Home() {
             <Pricing />
             <FAQ setSignupFormVisibility={setSignupFormVisibility}/>
             <Contact setSignupFormVisibility={setSignupFormVisibility}/>
-            {signupFormVisibility && <SignupForm setSignupFormVisibility={setSignupFormVisibility} setCalendlyModalVisibility={setCalendlyModalVisibility} />}
-            {calendlyModalVisibility && <CalendlyModal setCalendlyModalVisibility={setCalendlyModalVisibility}/>}
+            {/* Modal visibility state is not managed here; remove these lines or implement local state if needed */}
             <WhatsAppButton />
             <SalesPopup />
             <Footer />

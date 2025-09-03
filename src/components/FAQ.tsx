@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
-import { useOutletContext } from 'react-router-dom';
+//import { useOutletContext } from 'react-router-dom';
 import { GTagUTM } from '../utils/GTagUTM.js';
-const FAQ = ({setSignupFormVisibility}) => {
+interface FAQProps {
+  setSignupFormVisibility: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const FAQ: React.FC<FAQProps> = ({ setSignupFormVisibility }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   // const { setSignupFormVisibility } = useOutletContext<{
   //   setSignupFormVisibility: React.Dispatch<React.SetStateAction<boolean>>;

@@ -54,7 +54,7 @@ const CalendlyPreloader: React.FC<CalendlyPreloaderProps> = ({ onReady }) => {
 
     return () => {
       // Cleanup preload iframe on unmount
-      const preloadIframe = document.querySelector('iframe[src*="calendly.com"]');
+      const preloadIframe = document.querySelector('iframe[src*="calendly.com"]') as HTMLIFrameElement | null;
       if (preloadIframe && preloadIframe.style.display === 'none') {
         preloadIframe.remove();
       }

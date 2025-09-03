@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { GTagUTM } from '../utils/GTagUTM.js';
 
-const Hero = ({ setSignupFormVisibility }) => {
+interface HeroProps {
+  setSignupFormVisibility: (visible: boolean) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ setSignupFormVisibility }) => {
   const [isSuccessMatrixVisible, setIsSuccessMatrixVisible] = useState(false);
   const successMatrixRef = useRef<HTMLDivElement>(null);
 

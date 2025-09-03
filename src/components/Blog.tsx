@@ -2,13 +2,27 @@ import { useState, useRef, useEffect } from 'react';
 import { Calendar, Clock, User, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import blogPosts from '../BLogsData.ts';
 import { Link } from 'react-router-dom';
+
+type BlogPost = {
+  id: string | number;
+  title: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  readTime: string;
+  image: string;
+  category: string;
+  categoryColor: string;
+  content: string;
+};
+
 const Blog = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [visibleDots, setVisibleDots] = useState([0, 1, 2]);
-  const scrollContainerRef = useRef(null);
+  // const [visibleDots, setVisibleDots] = useState([0, 1, 2]);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const cardWidth = 384;
   // Limit to first 10 posts for performance=
   // Create the HTML content with proper favicon references
@@ -28,14 +42,14 @@ const Blog = () => {
       setCurrentIndex(currentPosition);
 
       // Update visible dots based on scroll position
-      const maxVisible = Math.min(3, Math.ceil(clientWidth / cardWidth));
-      const newVisibleDots = [];
+      // const maxVisible = Math.min(3, Math.ceil(clientWidth / cardWidth));
+      // const newVisibleDots = [];
 
-      for (let i = currentPosition; i < Math.min(currentPosition + maxVisible, blogPosts.length); i++) {
-        newVisibleDots.push(i);
-      }
+      // for (let i = currentPosition; i < Math.min(currentPosition + maxVisible, blogPosts.length); i++) {
+      //   newVisibleDots.push(i);
+      // }
 
-      setVisibleDots(newVisibleDots);
+      // setVisibleDots(newVisibleDots);
     }
   };
 
@@ -66,7 +80,7 @@ const Blog = () => {
     }
   };
 
-  const openBlogPost = (post) => {
+  const openBlogPost = (post: BlogPost) => {
     // Get the current origin to properly reference local assets
     const currentOrigin = window.location.origin;
 
@@ -286,6 +300,13 @@ const Blog = () => {
       </body>
       </html>
     `;
+    // You may want to open the blog post in a new window or handle as needed
+    // Example: window.open with the generated HTML
+    const newWindow = window.open('', '_blank');
+    if (newWindow) {
+      newWindow.document.write(htmlContent);
+      newWindow.document.close();
+    }
   };
 
   return (
@@ -336,8 +357,7 @@ const Blog = () => {
             className="flex gap-8 overflow-x-auto scrollbar-hide pb-4"
             style={{
               scrollbarWidth: 'none',
-              msOverflowStyle: 'none',
-              WebkitScrollbar: { display: 'none' }
+              msOverflowStyle: 'none'
             }}
           >
             {blogPosts.map((post, index) => (
@@ -424,7 +444,7 @@ const Blog = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes fadeInUp {
           from {
             opacity: 0;
